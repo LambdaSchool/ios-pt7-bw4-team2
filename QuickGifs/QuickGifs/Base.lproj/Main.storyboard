@@ -52,7 +52,7 @@
         <!--My Gifs-->
         <scene sceneID="PoX-oB-MO5">
             <objects>
-                <viewController id="qGm-jj-Kur" sceneMemberID="viewController">
+                <viewController id="qGm-jj-Kur" customClass="MyGifsViewController" customModule="QuickGifs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ORl-wB-aJ4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,13 +108,12 @@
                     <navigationItem key="navigationItem" title="Photo Libary" id="bGw-u6-825">
                         <barButtonItem key="rightBarButtonItem" title="Edit Photo" id="s0D-WX-MEY">
                             <connections>
-                                <action selector="editPhoto:" destination="qsm-Uy-EnQ" id="NF2-y0-LBm"/>
+                                <segue destination="Ryr-vD-orl" kind="show" identifier="goToFilterVCSegue" id="4WA-Q9-by4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="photo" destination="29B-xa-SOU" id="okq-Dy-ONC"/>
-                        <segue destination="Ryr-vD-orl" kind="show" identifier="goToFilterVCSegue" id="lWu-tF-ZG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4b-Lo-jtS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -179,7 +178,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lWu-tF-ZG0"/>
+        <segue reference="4WA-Q9-by4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="PlaceholderImage" width="375" height="554"/>
