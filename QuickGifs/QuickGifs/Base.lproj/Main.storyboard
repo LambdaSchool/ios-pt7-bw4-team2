@@ -36,7 +36,7 @@
         <!--Edit Photo-->
         <scene sceneID="5Yn-v8-GfW">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Ryr-vD-orl" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Ryr-vD-orl" customClass="FilterViewController" customModule="QuickGifs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SQo-Mv-5dU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,10 +106,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Photo Libary" id="bGw-u6-825">
-                        <barButtonItem key="rightBarButtonItem" title="Edit Photo" id="s0D-WX-MEY"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit Photo" id="s0D-WX-MEY">
+                            <connections>
+                                <action selector="editPhoto:" destination="qsm-Uy-EnQ" id="NF2-y0-LBm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="Ryr-vD-orl" kind="show" identifier="ImagePickerToEditSegue" id="lWu-tF-ZG0"/>
+                        <outlet property="photo" destination="29B-xa-SOU" id="okq-Dy-ONC"/>
+                        <segue destination="Ryr-vD-orl" kind="show" identifier="goToFilterVCSegue" id="lWu-tF-ZG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4b-Lo-jtS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
