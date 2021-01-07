@@ -9,7 +9,7 @@ import UIKit
 import Photos
 
 
-class ViewController: UIViewController {
+class FilterViewController: UIViewController {
     
     // MARK: - Properties
     let photo: UIImageView = {
@@ -178,7 +178,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width/3.5
         return CGSize(width: width, height: width)
@@ -212,7 +212,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+extension FilterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
             pickerImage = image
