@@ -61,7 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Gifs" id="0lf-U4-B3l"/>
                     <connections>
-                        <segue destination="E0b-jS-Sft" kind="show" id="VPa-Bb-8vF"/>
+                        <segue destination="E0b-jS-Sft" kind="show" identifier="MyGifsDetialSegue" id="VPa-Bb-8vF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFu-rf-SWv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -71,7 +71,7 @@
         <!--Gif Detial-->
         <scene sceneID="hZr-Gm-mPr">
             <objects>
-                <viewController id="E0b-jS-Sft" sceneMemberID="viewController">
+                <viewController id="E0b-jS-Sft" customClass="MyGifsDetialViewController" customModule="QuickGifs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rpN-bI-kXf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,7 +108,7 @@
                     <navigationItem key="navigationItem" title="Photo Libary" id="bGw-u6-825">
                         <barButtonItem key="rightBarButtonItem" title="Edit Photo" id="s0D-WX-MEY">
                             <connections>
-                                <segue destination="Ryr-vD-orl" kind="show" identifier="goToFilterVCSegue" id="4WA-Q9-by4"/>
+                                <segue destination="Ryr-vD-orl" kind="show" identifier="goToFilterVCSegue" id="NQg-k8-kej"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -178,7 +178,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4WA-Q9-by4"/>
+        <segue reference="NQg-k8-kej"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="PlaceholderImage" width="375" height="554"/>
