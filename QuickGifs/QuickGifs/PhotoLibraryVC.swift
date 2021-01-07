@@ -43,7 +43,7 @@ class PhotoLibraryVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFilterVCSegue" {
             let filterVC = segue.destination as! FilterViewController
-            filterVC.image = self.image
+            filterVC.pickerImage = self.image
         }
     }
     

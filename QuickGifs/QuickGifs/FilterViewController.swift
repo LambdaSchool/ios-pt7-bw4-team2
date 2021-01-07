@@ -6,23 +6,23 @@
 //
 
 import UIKit
-
-class FilterViewController: UIViewController {
-    
-    // Outlets
-    
-    
-    // Properties
-    var image: UIImage!
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-
- 
-
-}//
+//
+//class FilterViewController: UIViewController {
+//    
+//    // Outlets
+//    
+//    
+//    // Properties
+//    var image: UIImage!
+//    
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//    }
+//    
+//
+// 
+//
+//}//
