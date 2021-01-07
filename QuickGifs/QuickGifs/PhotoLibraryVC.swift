@@ -35,10 +35,6 @@ class PhotoLibraryVC: UIViewController {
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }//
-
-    @IBAction func editPhoto(_ sender: Any) {
-        navigationController?.performSegue(withIdentifier: "goToFilterVCSegue", sender: nil)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFilterVCSegue" {
