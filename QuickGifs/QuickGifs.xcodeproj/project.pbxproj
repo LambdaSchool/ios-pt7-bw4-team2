@@ -12,8 +12,10 @@
 		2207C8D52589B03B00AF6F68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2207C8D32589B03B00AF6F68 /* Main.storyboard */; };
 		2207C8D72589B03C00AF6F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2207C8D62589B03C00AF6F68 /* Assets.xcassets */; };
 		2207C8DA2589B03C00AF6F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2207C8D82589B03C00AF6F68 /* LaunchScreen.storyboard */; };
+		220AD6F8258E769C002B28FF /* StickerGifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AD6F7258E769C002B28FF /* StickerGifCollectionViewCell.swift */; };
 		2255578825A6CBF700693BDF /* MyGifsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255578625A6CBF600693BDF /* MyGifsCollectionViewCell.swift */; };
 		2255578925A6CBF700693BDF /* MyGifsDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255578725A6CBF600693BDF /* MyGifsDetialViewController.swift */; };
+		227DA47F2592E7E100BAFC77 /* Gifs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227DA47D2592E7E100BAFC77 /* Gifs.xcdatamodeld */; };
 		22F1B661258B069000C14B40 /* MyGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1B660258B069000C14B40 /* MyGifsViewController.swift */; };
 		7C060F6425A6ADDD001D0681 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C060F6325A6ADDD001D0681 /* FilterView.swift */; };
 		8641193425A6A303006191AE /* CustomCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641193325A6A303006191AE /* CustomCameraVC.swift */; };
@@ -29,8 +31,10 @@
 		2207C8D62589B03C00AF6F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2207C8D92589B03C00AF6F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2207C8DB2589B03C00AF6F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		220AD6F7258E769C002B28FF /* StickerGifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerGifCollectionViewCell.swift; sourceTree = "<group>"; };
 		2255578625A6CBF600693BDF /* MyGifsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGifsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2255578725A6CBF600693BDF /* MyGifsDetialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGifsDetialViewController.swift; sourceTree = "<group>"; };
+		227DA47E2592E7E100BAFC77 /* Gifs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gifs.xcdatamodel; sourceTree = "<group>"; };
 		22F1B660258B069000C14B40 /* MyGifsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGifsViewController.swift; sourceTree = "<group>"; };
 		7C060F6325A6ADDD001D0681 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		8641193325A6A303006191AE /* CustomCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraVC.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		2207C8CC2589B03B00AF6F68 /* QuickGifs */ = {
 			isa = PBXGroup;
 			children = (
+				227DA47C2592E7A200BAFC77 /* Model */,
+				220AD6FA258E76E7002B28FF /* Stiker Cell  */,
 				8641193225A6A2DA006191AE /* View Controllers */,
 				2207C8D32589B03B00AF6F68 /* Main.storyboard */,
 				2207C8D82589B03C00AF6F68 /* LaunchScreen.storyboard */,
@@ -86,6 +92,22 @@
 				2207C8CD2589B03B00AF6F68 /* AppDelegate.swift */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		220AD6FA258E76E7002B28FF /* Stiker Cell  */ = {
+			isa = PBXGroup;
+			children = (
+				220AD6F7258E769C002B28FF /* StickerGifCollectionViewCell.swift */,
+			);
+			name = "Stiker Cell ";
+			sourceTree = "<group>";
+		};
+		227DA47C2592E7A200BAFC77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				227DA47D2592E7E100BAFC77 /* Gifs.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		8641193225A6A2DA006191AE /* View Controllers */ = {
@@ -180,6 +202,8 @@
 				8641193A25A6B0E1006191AE /* FilterViewController.swift in Sources */,
 				2255578925A6CBF700693BDF /* MyGifsDetialViewController.swift in Sources */,
 				2255578825A6CBF700693BDF /* MyGifsCollectionViewCell.swift in Sources */,
+				220AD6F8258E769C002B28FF /* StickerGifCollectionViewCell.swift in Sources */,
+				227DA47F2592E7E100BAFC77 /* Gifs.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +405,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		227DA47D2592E7E100BAFC77 /* Gifs.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				227DA47E2592E7E100BAFC77 /* Gifs.xcdatamodel */,
+			);
+			currentVersion = 227DA47E2592E7E100BAFC77 /* Gifs.xcdatamodel */;
+			path = Gifs.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2207C8C22589B03B00AF6F68 /* Project object */;
 }
