@@ -22,6 +22,7 @@
 		8641193725A6A338006191AE /* PhotoLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641193625A6A338006191AE /* PhotoLibraryVC.swift */; };
 		8641194325A7E352006191AE /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641194225A7E352006191AE /* UIView+Constrains.swift */; };
 		8641195025A807A0006191AE /* imageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641194F25A807A0006191AE /* imageOrientation.swift */; };
+		8641195625A82647006191AE /* gifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641195525A82647006191AE /* gifImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		8641193625A6A338006191AE /* PhotoLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryVC.swift; sourceTree = "<group>"; };
 		8641194225A7E352006191AE /* UIView+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
 		8641194F25A807A0006191AE /* imageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageOrientation.swift; sourceTree = "<group>"; };
+		8641195525A82647006191AE /* gifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			children = (
 				8641194225A7E352006191AE /* UIView+Constrains.swift */,
 				8641194F25A807A0006191AE /* imageOrientation.swift */,
+				8641195525A82647006191AE /* gifImageView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				2255578825A6CBF700693BDF /* MyGifsCollectionViewCell.swift in Sources */,
 				220AD6F8258E769C002B28FF /* StickerGifCollectionViewCell.swift in Sources */,
 				227DA47F2592E7E100BAFC77 /* Gifs.xcdatamodeld in Sources */,
+				8641195625A82647006191AE /* gifImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
