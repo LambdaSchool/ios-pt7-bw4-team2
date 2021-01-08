@@ -43,7 +43,10 @@
 		8641193625A6A338006191AE /* PhotoLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryVC.swift; sourceTree = "<group>"; };
 		8641194225A7E352006191AE /* UIView+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
 		8641194F25A807A0006191AE /* imageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageOrientation.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		8641195525A82647006191AE /* gifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifImageView.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> 0c159f59d839e88a52c78cbcf07fc7834c52cd64
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +135,10 @@
 			children = (
 				8641194225A7E352006191AE /* UIView+Constrains.swift */,
 				8641194F25A807A0006191AE /* imageOrientation.swift */,
+<<<<<<< HEAD
 				8641195525A82647006191AE /* gifImageView.swift */,
+=======
+>>>>>>> 0c159f59d839e88a52c78cbcf07fc7834c52cd64
 			);
 			name = Extension;
 			sourceTree = "<group>";

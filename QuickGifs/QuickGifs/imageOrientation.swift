@@ -9,6 +9,7 @@ import UIKit
 
 
 
+
 extension UIImage {
 
     var ratio: CGFloat {
@@ -68,5 +69,8 @@ extension UIImage {
     }
 
 }
+
+
+
 
 

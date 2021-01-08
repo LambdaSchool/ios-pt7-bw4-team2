@@ -12,8 +12,9 @@ import Photos
 class FilterViewController: UIViewController {
     
     // MARK: - Properties
-    var photo: gifImageView = {
-        let image = gifImageView()
+
+    let photo: UIImageView = {
+        let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -41,13 +42,7 @@ class FilterViewController: UIViewController {
           pickerImage = pickerImage?.flattened
           self.filteredImages = makeFilteredPhotos()    }
       }
-    
-    
-//    var pickerImage: UIImage? {
-//        didSet {
-//            self.filteredImages = makeFilteredPhotos()
-//        }
-//    }
+
     
     var CIFilterNames = [
         "CIPhotoEffectChrome",
@@ -67,7 +62,9 @@ class FilterViewController: UIViewController {
         var filteredImages = [UIImage]()
         (0..<CIFilterNames.count).forEach {
             let filter = CIFilter(name: CIFilterNames[$0])
-            let newImage = resizeImage(image: pickerImage ?? UIImage(), newWidth: 150).flattened
+
+            let newImage = resizeImage(image: pickerImage ?? UIImage(), newWidth: 150)
+
             let ciImage = CIImage(image: newImage)
             filter?.setValue(ciImage, forKey: kCIInputImageKey)
             if let filteredtImage = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
@@ -94,7 +91,8 @@ class FilterViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        photo.image = pickerImage?.flattened
+        photo.image = pickerImage
+
         setupNavBar()
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
@@ -105,19 +103,18 @@ class FilterViewController: UIViewController {
     }
     
     
-    
-    
+
     // MARK: - Helper Methods
     
     func addSubviews() {
         view.addSubview(photo)
-        view.addSubview(filterCollectionView)
-    }
     
     func setupNavBar() {
         self.navigationItem.title = "Edit GIF View"
         navigationController?.navigationBar.prefersLargeTitles = true
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped(sender:)))
+
     }
     
     @objc func saveTapped(sender: UIBarButtonItem!) {
@@ -128,12 +125,13 @@ class FilterViewController: UIViewController {
         //    let tabNC = storyboard.instantiateViewController(identifier: "gifTabNC") as! UINavigationController    detialVC.data = CustomData.init(image: self.image ?? UIImage())
             navigationController?.pushViewController(gifsVC, animated: true)
         //    present(detialVC, animated: true, completion: nil)
+
         
         print("Save button was tapped!")
         
     }
     
-   
+  
     
     func configureImageOrVideoView() {
         // Configure
@@ -158,6 +156,7 @@ class FilterViewController: UIViewController {
     }
     
 
+
     
     private func presentImagePickerController() {
         guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
@@ -172,8 +171,8 @@ class FilterViewController: UIViewController {
     }
     
     
-    
 }//
+
 
 extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -202,7 +201,7 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
         if let filteredtImage = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
             let result = context.createCGImage(filteredtImage, from: filteredtImage.extent)
             
-            self.photo.image = UIImage(cgImage: result!).flattened
+            self.photo.image = UIImage(cgImage: result!)
             
         }
 
@@ -261,8 +260,12 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
     
    
+<<<<<<< HEAD
 }//
 
 
 
+=======
+}
+>>>>>>> 0c159f59d839e88a52c78cbcf07fc7834c52cd64
 
