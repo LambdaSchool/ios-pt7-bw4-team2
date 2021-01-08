@@ -108,23 +108,23 @@ class FilterViewController: UIViewController {
     func setupNavBar() {
         self.navigationItem.title = "Edit GIF View"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddActionSheet(sender:)))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped(sender:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped(sender:)))
     }
     
     @objc func saveTapped(sender: UIBarButtonItem!) {
         UIImageWriteToSavedPhotosAlbum(photo.image!, nil, nil, nil)
-        dismiss(animated: true, completion: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let gifsVC = storyboard.instantiateViewController(identifier: "gifsVC") as! MyGifsViewController
+        //    let tabNC = storyboard.instantiateViewController(identifier: "gifTabNC") as! UINavigationController    detialVC.data = CustomData.init(image: self.image ?? UIImage())
+            navigationController?.pushViewController(gifsVC, animated: true)
+        //    present(gifsVC, animated: true, completion: nil)
         
         print("Save button was tapped!")
         
     }
     
-    @objc func showAddActionSheet(sender: UIBarButtonItem!) {
-        print("add button was tapped!")
-        presentAlert()
-        
-    }
+   
     
     func configureImageOrVideoView() {
         // Configure
