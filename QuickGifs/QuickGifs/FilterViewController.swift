@@ -12,8 +12,8 @@ import Photos
 class FilterViewController: UIViewController {
     
     // MARK: - Properties
-    let photo: UIImageView = {
-        let image = UIImageView()
+    var photo: gifImageView = {
+        let image = gifImageView()
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -38,9 +38,16 @@ class FilterViewController: UIViewController {
     
     var pickerImage: UIImage? {
         didSet {
-            self.filteredImages = makeFilteredPhotos()
-        }
-    }
+          pickerImage = pickerImage?.flattened
+          self.filteredImages = makeFilteredPhotos()    }
+      }
+    
+    
+//    var pickerImage: UIImage? {
+//        didSet {
+//            self.filteredImages = makeFilteredPhotos()
+//        }
+//    }
     
     var CIFilterNames = [
         "CIPhotoEffectChrome",
@@ -60,7 +67,7 @@ class FilterViewController: UIViewController {
         var filteredImages = [UIImage]()
         (0..<CIFilterNames.count).forEach {
             let filter = CIFilter(name: CIFilterNames[$0])
-            let newImage = resizeImage(image: pickerImage ?? UIImage(), newWidth: 150)
+            let newImage = resizeImage(image: pickerImage ?? UIImage(), newWidth: 150).flattened
             let ciImage = CIImage(image: newImage)
             filter?.setValue(ciImage, forKey: kCIInputImageKey)
             if let filteredtImage = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
@@ -87,7 +94,7 @@ class FilterViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        photo.image = pickerImage
+        photo.image = pickerImage?.flattened
         setupNavBar()
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
@@ -96,6 +103,8 @@ class FilterViewController: UIViewController {
         configureCollectionView()
         configureImageOrVideoView()
     }
+    
+    
     
     
     // MARK: - Helper Methods
@@ -115,10 +124,10 @@ class FilterViewController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(photo.image!, nil, nil, nil)
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let gifsVC = storyboard.instantiateViewController(identifier: "gifsVC") as! MyGifsViewController
+            let gifsVC = storyboard.instantiateViewController(identifier: "MyGifsViewController") as! MyGifsViewController
         //    let tabNC = storyboard.instantiateViewController(identifier: "gifTabNC") as! UINavigationController    detialVC.data = CustomData.init(image: self.image ?? UIImage())
             navigationController?.pushViewController(gifsVC, animated: true)
-        //    present(gifsVC, animated: true, completion: nil)
+        //    present(detialVC, animated: true, completion: nil)
         
         print("Save button was tapped!")
         
@@ -148,8 +157,7 @@ class FilterViewController: UIViewController {
         filterCollectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
-//    var orientation: UIImage.Orientation = .up
-//    orientation = image.imageOrientation
+
     
     private func presentImagePickerController() {
         guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
@@ -163,27 +171,9 @@ class FilterViewController: UIViewController {
         present(imagePicker, animated: true)
     }
     
-    func presentAlert() {
-        let alert = UIAlertController(title: "Please Choose", message: nil, preferredStyle: .actionSheet)
-
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Take a picture", comment: "Default action"), style: .default, handler: { _ in
-        NSLog("Open camera")
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Choose from library", comment: "Default action"), style: .default, handler: { _ in
-        NSLog("Open camera roll")
-        self.presentImagePickerController()
-        }))
-
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
-        NSLog("Cancel add")
-            alert.dismiss(animated: true, completion: nil)
-        }))
-
-        self.present(alert, animated: true, completion: nil)
-    }
     
     
-}
+}//
 
 extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -212,7 +202,7 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
         if let filteredtImage = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
             let result = context.createCGImage(filteredtImage, from: filteredtImage.extent)
             
-            self.photo.image = UIImage(cgImage: result!)
+            self.photo.image = UIImage(cgImage: result!).flattened
             
         }
 
@@ -271,5 +261,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
     
    
-}
+}//
+
+
+
 

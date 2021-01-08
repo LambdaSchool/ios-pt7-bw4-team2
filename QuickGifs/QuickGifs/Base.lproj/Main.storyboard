@@ -52,7 +52,7 @@
         <!--My Gifs-->
         <scene sceneID="PoX-oB-MO5">
             <objects>
-                <viewController storyboardIdentifier="gifsVC" id="qGm-jj-Kur" customClass="MyGifsViewController" customModule="QuickGifs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyGifsViewController" id="qGm-jj-Kur" customClass="MyGifsViewController" customModule="QuickGifs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ORl-wB-aJ4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
