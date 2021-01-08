@@ -17,11 +17,11 @@
 		2255578925A6CBF700693BDF /* MyGifsDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2255578725A6CBF600693BDF /* MyGifsDetialViewController.swift */; };
 		227DA47F2592E7E100BAFC77 /* Gifs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227DA47D2592E7E100BAFC77 /* Gifs.xcdatamodeld */; };
 		22F1B661258B069000C14B40 /* MyGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F1B660258B069000C14B40 /* MyGifsViewController.swift */; };
-		7C060F6425A6ADDD001D0681 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C060F6325A6ADDD001D0681 /* FilterView.swift */; };
+		7C060F6425A6ADDD001D0681 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C060F6325A6ADDD001D0681 /* FilterViewController.swift */; };
 		8641193425A6A303006191AE /* CustomCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641193325A6A303006191AE /* CustomCameraVC.swift */; };
 		8641193725A6A338006191AE /* PhotoLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641193625A6A338006191AE /* PhotoLibraryVC.swift */; };
-		8641193A25A6B0E1006191AE /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641193925A6B0E1006191AE /* FilterViewController.swift */; };
 		8641194325A7E352006191AE /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641194225A7E352006191AE /* UIView+Constrains.swift */; };
+		8641195025A807A0006191AE /* imageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641194F25A807A0006191AE /* imageOrientation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +37,11 @@
 		2255578725A6CBF600693BDF /* MyGifsDetialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGifsDetialViewController.swift; sourceTree = "<group>"; };
 		227DA47E2592E7E100BAFC77 /* Gifs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gifs.xcdatamodel; sourceTree = "<group>"; };
 		22F1B660258B069000C14B40 /* MyGifsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGifsViewController.swift; sourceTree = "<group>"; };
-		7C060F6325A6ADDD001D0681 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		7C060F6325A6ADDD001D0681 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		8641193325A6A303006191AE /* CustomCameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraVC.swift; sourceTree = "<group>"; };
 		8641193625A6A338006191AE /* PhotoLibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryVC.swift; sourceTree = "<group>"; };
-		8641193925A6B0E1006191AE /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		8641194225A7E352006191AE /* UIView+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
+		8641194F25A807A0006191AE /* imageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageOrientation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 				8641193225A6A2DA006191AE /* View Controllers */,
 				2207C8D32589B03B00AF6F68 /* Main.storyboard */,
 				2207C8D82589B03C00AF6F68 /* LaunchScreen.storyboard */,
-				7C060F6325A6ADDD001D0681 /* FilterView.swift */,
+				7C060F6325A6ADDD001D0681 /* FilterViewController.swift */,
 				2207C8E72589BF3C00AF6F68 /* Resources */,
 				2207C8DB2589B03C00AF6F68 /* Info.plist */,
 			);
@@ -121,7 +121,6 @@
 				22F1B660258B069000C14B40 /* MyGifsViewController.swift */,
 				8641193325A6A303006191AE /* CustomCameraVC.swift */,
 				8641193625A6A338006191AE /* PhotoLibraryVC.swift */,
-				8641193925A6B0E1006191AE /* FilterViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -130,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				8641194225A7E352006191AE /* UIView+Constrains.swift */,
+				8641194F25A807A0006191AE /* imageOrientation.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -204,14 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8641195025A807A0006191AE /* imageOrientation.swift in Sources */,
 				22F1B661258B069000C14B40 /* MyGifsViewController.swift in Sources */,
 				8641193425A6A303006191AE /* CustomCameraVC.swift in Sources */,
 				8641194325A7E352006191AE /* UIView+Constrains.swift in Sources */,
 				2207C8CE2589B03B00AF6F68 /* AppDelegate.swift in Sources */,
-				7C060F6425A6ADDD001D0681 /* FilterView.swift in Sources */,
+				7C060F6425A6ADDD001D0681 /* FilterViewController.swift in Sources */,
 				2207C8D02589B03B00AF6F68 /* SceneDelegate.swift in Sources */,
 				8641193725A6A338006191AE /* PhotoLibraryVC.swift in Sources */,
-				8641193A25A6B0E1006191AE /* FilterViewController.swift in Sources */,
 				2255578925A6CBF700693BDF /* MyGifsDetialViewController.swift in Sources */,
 				2255578825A6CBF700693BDF /* MyGifsCollectionViewCell.swift in Sources */,
 				220AD6F8258E769C002B28FF /* StickerGifCollectionViewCell.swift in Sources */,
