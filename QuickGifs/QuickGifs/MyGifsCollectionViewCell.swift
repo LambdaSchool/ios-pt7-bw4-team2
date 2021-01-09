@@ -24,6 +24,7 @@ class MyGifsCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.tag = 1
         
         return imageView
     }()

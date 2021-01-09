@@ -28,20 +28,6 @@ class MyGifsDetialViewController: UIViewController {
         return image
     }()
     
-    /*
-     
-    private let addStickerButton: UIButton = {
-        let button = UIButton()
-        button.contentMode = .scaleAspectFit
-        button.backgroundColor = .green
-        button.setTitle("Set Sticker", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-     addStickerButton.addTarget(self, action: #selector(toggledHiddedButton), for: .touchUpInside)
-        return button
-    }()
-     
-     */
-    
     lazy private var shareButton: UIButton = {
         let button = UIButton()
         button.contentMode = .scaleAspectFit
@@ -51,13 +37,9 @@ class MyGifsDetialViewController: UIViewController {
         button.addTarget(self, action: #selector(handleShareButton), for: .touchUpInside)
         return button
     }()
-    
-//
-    
-    
+
     private let editStickerButton: UIBarButtonItem = {
-      let editButton = UIBarButtonItem()
-//        editButton.backgroundImage(for: .selected, style: <#T##UIBarButtonItem.Style#>, barMetrics: <#T##UIBarMetrics#>)
+        let editButton = UIBarButtonItem()
         return editButton
     }()
 
@@ -102,34 +84,6 @@ class MyGifsDetialViewController: UIViewController {
             gifImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             gifImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             gifImageView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 150),
-            
-            /*
-             
-            addStickerButton.topAnchor.constraint(equalTo: gifImageView.bottomAnchor, constant: 50),
-            addStickerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addStickerButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            addStickerButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1 / 20),
-            
-             */
-            
-//            addStickerButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 2),
-//            addStickerButton.heightAnchor.constraint(equalToConstant: view.bounds.height / 20),
-//            addStickerButton.leadingAnchor.constraint(equalTo: gifImageView.leadingAnchor, constant: 30),
-//            addStickerButton.trailingAnchor.constraint(equalTo: gifImageView.trailingAnchor, constant: -30),
-//            addStickerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 40)
-            
-            /*
-             
-            stickerCollecdtionView.topAnchor.constraint(equalTo: gifImageView.bottomAnchor, constant: 40),
-            stickerCollecdtionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stickerCollecdtionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
-            stickerCollecdtionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1 / 5),
-            
-             */
-            
-//            stickerCollecdtionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//            stickerCollecdtionView.widthAnchor.constraint(equalToConstant: view.bounds.width / 2),
-//            stickerCollecdtionView.heightAnchor.constraint(equalToConstant: view.bounds.height / 20)
             
             shareButton.topAnchor.constraint(equalTo: gifImageView.bottomAnchor, constant: 150),
             shareButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
