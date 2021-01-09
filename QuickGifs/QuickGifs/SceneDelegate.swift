@@ -16,13 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        UITabBar.appearance().tintColor = .black
+        UITabBar.appearance().tintColor = .label
         
         configureNavigationBar()
     }
     
     func configureNavigationBar() {
-        UINavigationBar.appearance().tintColor = .black
+        UINavigationBar.appearance().tintColor = .label
     }
     
 

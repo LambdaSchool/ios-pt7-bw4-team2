@@ -23,6 +23,7 @@
 		8641194325A7E352006191AE /* UIView+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641194225A7E352006191AE /* UIView+Constrains.swift */; };
 		8641195025A807A0006191AE /* imageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641194F25A807A0006191AE /* imageOrientation.swift */; };
 		8641195625A82647006191AE /* gifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641195525A82647006191AE /* gifImageView.swift */; };
+		8641196025A8F663006191AE /* FilterImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8641195F25A8F663006191AE /* FilterImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8641194225A7E352006191AE /* UIView+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrains.swift"; sourceTree = "<group>"; };
 		8641194F25A807A0006191AE /* imageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageOrientation.swift; sourceTree = "<group>"; };
 		8641195525A82647006191AE /* gifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifImageView.swift; sourceTree = "<group>"; };
+		8641195F25A8F663006191AE /* FilterImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				220AD6F7258E769C002B28FF /* StickerGifCollectionViewCell.swift */,
+				8641195F25A8F663006191AE /* FilterImageCollectionViewCell.swift */,
 			);
 			name = "Stiker Cell ";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				7C060F6425A6ADDD001D0681 /* FilterViewController.swift in Sources */,
 				2207C8D02589B03B00AF6F68 /* SceneDelegate.swift in Sources */,
 				8641193725A6A338006191AE /* PhotoLibraryVC.swift in Sources */,
+				8641196025A8F663006191AE /* FilterImageCollectionViewCell.swift in Sources */,
 				2255578925A6CBF700693BDF /* MyGifsDetialViewController.swift in Sources */,
 				2255578825A6CBF700693BDF /* MyGifsCollectionViewCell.swift in Sources */,
 				220AD6F8258E769C002B28FF /* StickerGifCollectionViewCell.swift in Sources */,
@@ -367,7 +371,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2395UCK67;
+				DEVELOPMENT_TEAM = 4JH2MBZ5K9;
 				INFOPLIST_FILE = QuickGifs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -386,7 +390,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2395UCK67;
+				DEVELOPMENT_TEAM = 4JH2MBZ5K9;
 				INFOPLIST_FILE = QuickGifs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

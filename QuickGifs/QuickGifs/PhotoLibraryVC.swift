@@ -18,7 +18,8 @@ class PhotoLibraryVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        photo.layer.cornerRadius = 15
+        photo.clipsToBounds = true
         setupImageView()
     }
     
