@@ -13,14 +13,12 @@ class MyGifsDetialViewController: UIViewController {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var shareBTN: UIButton!
     
-    
    // Properties
     var image: UIImage?
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         photo.image = image
-        
         photo.layer.cornerRadius = 15
         photo.clipsToBounds = true
         shareBTN.layer.cornerRadius = 15

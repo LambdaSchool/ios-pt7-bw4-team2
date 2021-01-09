@@ -11,8 +11,6 @@ import Photos
 
 class MyGifsViewController: UIViewController {
     
-    // Outlets
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -28,13 +26,11 @@ class MyGifsViewController: UIViewController {
         
         authorizationCode { (status) in
             if status {
-//                self.collectionView.reloadData()
                 self.grapPhotos()
             } else {
                 print("not authorized")
             }
         }
-        
     }//
     
     
@@ -79,8 +75,6 @@ class MyGifsViewController: UIViewController {
             collectionView.reloadData()
         }
     }//
-    
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let gifsDetailVC  = segue.destination as! MyGifsDetialViewController
