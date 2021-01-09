@@ -11,6 +11,14 @@ import Photos
 
 class FilterViewController: UIViewController {
     
+    // MARK: - Properties
+
+    let photo: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
     
     @IBOutlet weak var filterCollectionView: UICollectionView!
     
@@ -115,8 +123,33 @@ class FilterViewController: UIViewController {
 
     
     @IBAction func saveButton(_ sender: Any) {
+
+    // MARK: - Helper Methods
+    
+    func addSubviews() {
+        view.addSubview(photo)
+    
+    func setupNavBar() {
+        self.navigationItem.title = "Edit GIF View"
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped(sender:)))
+
+    }
+    
+    @objc func saveTapped(sender: UIBarButtonItem!) {
         UIImageWriteToSavedPhotosAlbum(photo.image!, nil, nil, nil)
         dismiss(animated: true, completion: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let gifsVC = storyboard.instantiateViewController(identifier: "MyGifsViewController") as! MyGifsViewController
+        //    let tabNC = storyboard.instantiateViewController(identifier: "gifTabNC") as! UINavigationController    detialVC.data = CustomData.init(image: self.image ?? UIImage())
+            navigationController?.pushViewController(gifsVC, animated: true)
+        //    present(detialVC, animated: true, completion: nil)
+
+        
+        print("Save button was tapped!")
+        
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -134,6 +167,19 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
         return CGSize(width: cellWidth, height: cellWidth)
     }
     
+
+
+    
+    private func presentImagePickerController() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+            print("Error")
+            return
+        }
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        
+        present(imagePicker, animated: true)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
@@ -142,7 +188,14 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
         return 10
     }
     
-    
+}//
+
+
+extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width/3.5
+        return CGSize(width: width, height: width)
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredImages.count
     }
@@ -227,5 +280,47 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
 //}//
 
 
+class FilterCollectionViewCell: UICollectionViewCell {
+    
+     let filterPhoto: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor.white
+        imageView.image = UIImage()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 20
+        return imageView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        contentView.addSubview(filterPhoto)
+        
+        filterPhoto.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        filterPhoto.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        filterPhoto.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        filterPhoto.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addViews() {
+        addSubview(filterPhoto)
+    }
+    
+   
+<<<<<<< HEAD
+}//
+
+
+
+=======
+}
+>>>>>>> 0c159f59d839e88a52c78cbcf07fc7834c52cd64
 
 
