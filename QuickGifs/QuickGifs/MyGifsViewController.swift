@@ -11,10 +11,13 @@ import Photos
 
 class MyGifsViewController: UIViewController {
     
+
     // Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+
+
     
     // Properties
     var imageArray = [UIImage]()
@@ -22,6 +25,9 @@ class MyGifsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.collectionView.reloadData()
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -32,7 +38,7 @@ class MyGifsViewController: UIViewController {
                 print("not authorized")
             }
         }
-        
+
     }//
     
     
@@ -87,6 +93,7 @@ class MyGifsViewController: UIViewController {
     }
 
 }// CLASS
+
 
 extension MyGifsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     

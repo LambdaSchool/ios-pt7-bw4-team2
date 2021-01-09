@@ -20,11 +20,11 @@ class MyGifsDetialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photo.image = image
-        
         photo.layer.cornerRadius = 15
         photo.clipsToBounds = true
         shareBTN.layer.cornerRadius = 15
         shareBTN.clipsToBounds = true
+
     }
     
     

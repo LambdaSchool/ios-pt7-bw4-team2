@@ -16,28 +16,6 @@ class FilterViewController: UIViewController {
     
     @IBOutlet weak var photo: UIImageView!
     
-    // MARK: - Properties
-//    var photo: gifImageView = {
-//        let image = gifImageView()
-//        image.contentMode = .scaleAspectFill
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        return image
-//    }()
-//
-//    fileprivate let filterCollectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        cv.translatesAutoresizingMaskIntoConstraints = false
-//        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-//        return cv
-//    }()
-//
-//    let topView: UIView = {
-//       let view = UIView()
-//        view.backgroundColor = .systemPink
-//        return view
-//    }()
     
      var filteredImages = [UIImage]() {
         didSet {
@@ -52,13 +30,6 @@ class FilterViewController: UIViewController {
           pickerImage = pickerImage?.flattened
           self.filteredImages = makeFilteredPhotos()    }
       }
-    
-    
-//    var pickerImage: UIImage? {
-//        didSet {
-//            self.filteredImages = makeFilteredPhotos()
-//        }
-//    }
     
     var CIFilterNames = [
         "CIPhotoEffectChrome",
@@ -134,6 +105,7 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
         return CGSize(width: cellWidth, height: cellWidth)
     }
     
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
@@ -142,7 +114,7 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
         return 10
     }
     
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredImages.count
     }
@@ -172,59 +144,6 @@ extension FilterViewController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
 }
-
-//extension FilterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if let image = info[.editedImage] as? UIImage {
-//            pickerImage = image
-//        } else if let image = info[.originalImage] as? UIImage {
-//            pickerImage = image
-//        }
-//        photo.image = pickerImage
-//        dismiss(animated: true)
-//    }
-//
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true)
-//    }
-//
-//}
-
-//class FilterCollectionViewCell: UICollectionViewCell {
-//    
-//     let filterPhoto: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.backgroundColor = UIColor.white
-//        imageView.image = UIImage()
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.clipsToBounds = true
-//        imageView.layer.cornerRadius = 20
-//        return imageView
-//    }()
-//    
-//    override init(frame: CGRect) {
-//        super.init(frame: .zero)
-//        contentView.addSubview(filterPhoto)
-//        
-//        filterPhoto.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-//        filterPhoto.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-//        filterPhoto.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-//        filterPhoto.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-//        
-//        
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    
-//    func addViews() {
-//        addSubview(filterPhoto)
-//    }
-//    
-//   
-//}//
 
 
 
