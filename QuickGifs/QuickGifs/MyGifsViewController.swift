@@ -6,136 +6,128 @@
 //
 
 import UIKit
+import Photos
 
-struct CustomData {
-    var image: UIImage
-}
 
 class MyGifsViewController: UIViewController {
     
-    var image: UIImage?
+    // Outlets
     
-    let testData = [
-        CustomData(image: #imageLiteral(resourceName: "john-ko-K7fUYVvmLxk-unsplash")),
-        CustomData(image: #imageLiteral(resourceName: "field-inside-the-emblem-with-cow-mountain-and-plant-892ld")),
-        CustomData(image: #imageLiteral(resourceName: "green-tree-plant-bio-organic-seed-logo-vector-17102220")),
-        CustomData(image: #imageLiteral(resourceName: "leaf-plant-logo-ecology-people-wellness-green-leaves-nature-symbol-icon-set-designs-health-logo-template-business-leaf-107966551")),
-        CustomData(image: #imageLiteral(resourceName: "john-ko-K7fUYVvmLxk-unsplash"))
-    ]
-        
-    // creating the colletion Think of me draging out the collection to the storyboard
-    private let collectionView: UICollectionView = {
-       let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(MyGifsCollectionViewCell.self, forCellWithReuseIdentifier: MyGifsCollectionViewCell.identifier)
-        
-        cv.contentInset = UIEdgeInsets(top: 20, left: 15, bottom: 0, right: 15)
-        
-        return cv
-    }()
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    // Properties
+    var imageArray = [UIImage]()
+    var image: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        view.addSubview(collectionView)
-        collectionView.frame = view.bounds
+        authorizationCode { (status) in
+            if status {
+                self.grapPhotos()
+            } else {
+                print("not authorized")
+            }
+        }
+        
+    }//
+    
+    
+    func authorizationCode(completion: @escaping (Bool) -> Void) {
+        
+        guard PHPhotoLibrary.authorizationStatus() != .authorized else {
+          completion(true)
+          return
+        }
+        // 2
+        PHPhotoLibrary.requestAuthorization { status in
+            completion(status == .authorized)
+        }
+    }//
+    
+    func grapPhotos() {
+       
+        let imgManager = PHImageManager.default()
+        
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.isSynchronous = true
+        requestOptions.deliveryMode = .highQualityFormat
+        
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+        
+         let fetchResult : PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
+        
+        if fetchResult.count > 0 {
+            
+            for i in 0..<fetchResult.count {
+                imgManager.requestImage(for: fetchResult.object(at: i) , targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: requestOptions) { (image, error) in
+                    
+                    self.imageArray.append(image!)
+                }
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        } else {
+            print("You got no photos")
+            collectionView.reloadData()
+        }
+    }//
+    
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let gifsDetailVC  = segue.destination as! MyGifsDetialViewController
+        gifsDetailVC.image = self.image
+//        gifsDetailVC.photo.image = self.image
     }
-    
-    
 
-    
-    // MARK: - Navigation
-//    func performSegue(withIdentifier: MyGifsDetialSegue, sender: nil) {
-//
-//    }
-    
-//     In a storyboard-based application, you will often want to do a little preparation before navigation
-//     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//     guard let selectedPath = collectionView else { return }
-//     if let target = segue.destination as? UserViewController {
-//     target.selectedUser = selectedPath.row
-//     }
-//     }
-   
-//     override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
-//             if segue!.identifier == "Details" {
-//                 let viewController:ViewController = segue!.destinationViewController as ViewController
-//                 let indexPath = self.tableView.indexPathForSelectedRow()
-//                 viewController.pinCode = self.exams[indexPath.row]
-//
-//             }
-//
-//         }
-  
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let detailVC = segue.destination as! MyGifsDetialViewController
-//        detailVC.photo = self.im
-//
-//        detailVC.photo?.images
-//    }
-    
+}// CLASS
 
-}
-
-extension MyGifsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    // calling the collection view view collectionView controller or extention.
+extension MyGifsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testData.count
+        return imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let gifCell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGifsCollectionViewCell.identifier, for: indexPath) as! MyGifsCollectionViewCell
-        gifCell.data = self.testData[indexPath.row]
-        return gifCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        imageView.image = imageArray[indexPath.row]
+        cell.backgroundColor = .red
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width / 2 - 20, height: collectionView.bounds.width / 2 - 20)
-    
+        let width = collectionView.frame.width / 2 - 1.0
         
-//        if indexPath == [0,0] {
-//            return CGSize(width: collectionView.bounds.width / 2 - 10, height: collectionView.bounds.width / 2 - 10)
-//        } else if indexPath == [0,1] {
-//            return CGSize(width: collectionView.bounds.width / 2 - 10, height: collectionView.bounds.width / 2 - 10)
-//        } else {
-//
-//            return CGSize(width: collectionView.bounds.width / 2 - 10, height: collectionView.bounds.width / 2 - 10)
-//        }
-        
-        
+        return CGSize(width: width, height: width)
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 1
-//        // Horiontal spacing between cells
-//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-        // Vertcal spacing between cells
+        return 1.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photo = testData[indexPath.item].image
+        
+//        let indexpath = collectionView.indexPathsForSelectedItems?.first
+        let photo = imageArray[indexPath.item]
         self.image = photo
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let detialVC = storyboard.instantiateViewController(identifier: "MyGifsDetialViewController") as! MyGifsDetialViewController
-//        let tabNC = storyboard.instantiateViewController(identifier: "gifTabNC") as! UINavigationController
-
+        performSegue(withIdentifier: "MyGifsDetialSegue", sender: self)
         
-        detialVC.data = CustomData.init(image: self.image ?? UIImage())
-//        navigationController?.pushViewController(detialVC, animated: true)
-        present(detialVC, animated: true, completion: nil)
-
+        print("You tapped me")
         
-        
-//        performSegue(withIdentifier: "MyGifsDetialSegue", sender: self)
-        
-    
     }
     
 }

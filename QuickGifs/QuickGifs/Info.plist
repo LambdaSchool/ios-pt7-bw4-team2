@@ -49,6 +49,8 @@
 	<string>Allow Save to Photo</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow Camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow Access to Photo Library</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

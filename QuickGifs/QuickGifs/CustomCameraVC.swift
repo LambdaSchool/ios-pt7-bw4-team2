@@ -14,7 +14,7 @@ class CustomCameraVC: UIViewController {
     // Outlets
     let pictureButton: UIButton = {
        let button = UIButton()
-        button.backgroundColor = .red
+//        button.backgroundColor = .red
         button.addTarget(self, action: #selector(handleCameraButton), for: .touchUpInside)
         return button
     }()
